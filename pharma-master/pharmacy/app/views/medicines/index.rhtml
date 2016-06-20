@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+	 height: 100%;
+  width: 100%;
+    background-image: url("/images/Pic1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+
+ 
+ }
+</style>
+<body>
+<h1>List of medicines</h1>
+<table border="1">
+	<tr>
+		<th>Sl.No</th>
+		<th>Medicine name</th>
+		<th>Quantity</th>
+		<th>Dosage</th>
+		<th>Expiry date</th>
+	</tr>
+	<% count = 0 %>
+	
+	<%for medicine in @medicines%>
+	<tr>
+		<td><%= count +=1%></td>
+	<td><%=medicine.medicine_name%></td>
+	<td><%=medicine.quantity%></td>
+	<td><%=medicine.dosage%></td>
+	<td><%=medicine.expiry_date%></td>
+	<%end%>
+	</tr>
+</table>
+<br />
+
+<%= link_to 'Create New Medicine', {:controller => 'medicines' ,:action => 'new'}%>
+</body></html>
+  

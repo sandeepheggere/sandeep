@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+	 height: 100%;
+  width: 100%;
+    background-image: url("/images/pic6.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+
+ 
+ }
+</style>
+<body>
+<h1>File upload</h1>
+<%= form_tag({:action => 'save_upload_stock'}, :multipart => true) do %>
+<p><label for="upload_file">select file</label></p>
+<%= file_field 'upload', 'datafile'%>
+<p><%= submit_tag "Upload"%></p>u
+<%end%>
+</body></html>
+
+
+ 
+
+
+
+
+
+

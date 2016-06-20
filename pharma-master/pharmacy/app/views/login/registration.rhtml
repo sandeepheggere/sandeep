@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+	<style>
+body {
+    background-image: url("/images/spric.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+ 
+ }
+</style>
+<body>
+<h1>Registration Details</h1>
+<%= form_for 'users', :url => {:action => "create"} do %>
+<%= fields_for 'users' do |u|%>
+<table>
+	<tr>
+		<label>User name: </label>
+		<%= u.text_field 'user_name'%>
+	</tr>&nbsp
+	<tr>
+		<label>Password: </label>
+		<%= u.password_field 'password'%>
+	</tr>&nbsp
+	<tr>
+		<label>Age: </label>
+		<%= u.text_field 'age'%>
+	</tr></br></br>
+	<tr>
+		<label>&nbsp &nbsp &nbsp Email: </label>
+		<%= u.text_field 'email'%>
+	</tr>&nbsp
+	<tr>
+		<label>&nbsp &nbsp &nbsp Mobile: </label>
+		<%= u.text_field 'mobile'%>
+	</tr></br></br>
+</table>
+<p><%= u.submit "Create"%></p>
+<%end%>
+<%end%>
+</body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+	 height: 100%;
+  width: 100%;
+    background-image: url("/images/pic3.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+
+ 
+ }
+</style>
+<body>
+<h1>Enter the Details</h1>
+<%=form_for 'medicines', :url => {:action => "create"} do %>
+<%= fields_for 'medicines' do |m|%>
+
+<table>
+	<tr>
+		<label>Medicine name: </label>
+		<%= m.text_field 'medicine_name'%>
+	</tr><br /><br />
+	<tr>
+		<label>Quantity:&nbsp;&nbsp;</label>
+		<%= m.text_field 'quantity'%>
+	</tr><br /><br />
+	<tr>
+		<label>Dosage:&nbsp;&nbsp;&nbsp;</label>
+		<%= m.text_field 'dosage'%>
+	</tr><br /><br />
+	<tr>
+		Expiry Date: &nbsp;&nbsp;<input type="text" id="datepicker">
+	</tr><br /><br />
+	<%= m.submit "Submit"%>
+</table>
+<%end%>
+<%end%>
+</html>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+$(function() {
+$( "#datepicker" ).datepicker({
+showOn: "button",
+buttonImage: "/images/one1.png",
+buttonImageOnly: true,
+});
+});
+</script>
+
+
+

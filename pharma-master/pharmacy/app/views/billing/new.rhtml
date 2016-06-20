@@ -1,0 +1,71 @@
+<script src="//ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>
+<!DOCTYPE html>
+<html>
+<style>
+#body {
+ #height: 100%;
+  #width: 100%;
+    #background-image: url("/images/pic2.jpg");
+    #background-repeat: no-repeat;
+    #background-attachment: fixed;
+    #background-position: center;
+    #-webkit-background-size: cover;
+#-moz-background-size: cover;
+#-o-background-size: cover;
+#background-size: cover;
+
+ 
+ #}
+</style>
+<body>
+<%= javascript_include_tag :defaults %>
+
+<%#= collection_select(:bills,:medicine_id, @medicine, :id, :medicine_name ,:onchange =>'load_quantity()')%>
+<%#= collection_select :bills,:medicine_id, @medicine, :id, :medicine_name, options={:prompt =>"select"},{:class => 'size45', :style => "width:122px"} %>
+<div id="one">
+<table><tr>
+<td>
+<label>Medicine name: </label>
+<%= collection_select :bi,:medicine_id, @medicine, :id,:medicine_name, options={:prompt =>"select"},{:class => 'size45', :style => "width:122px",:onchange => "abc(this.id)"} %></td>
+</tr><br />
+<tr><td><p><label>Available quantity: </label>
+<%=text_field :protocal,:textbox_tb, :style => "width:104px", readonly: true %></td></tr></table>
+    
+    <label >Quantity:</label>
+    <%=text_field :quantity,:madhuri , :style => "width:104px" %>
+    
+
+<p> <%= submit_tag ("ADD"),:class => "buttons",:onclick=>"myFunction()"%>
+</p>
+</table>
+
+
+
+</body>
+	
+</div>
+<div id='add_list'>
+
+</div>
+</html>
+
+<script>
+function myFunction() {
+	
+//alert(document.getElementById('bi_medicine_id').value);
+	var pars = "name="+document.getElementById('bi_medicine_id').value+"&avquantity="+document.getElementById('protocal_textbox_tb').value+"&quantity="+document.getElementById('quantity_madhuri').value;
+//alert(pars);
+    var myAjax = new Ajax.Updater("add_list", "/billing/view_member", {
+        method: 'get',
+        parameters: pars
+    });
+	
+    }
+
+    
+    function abc(id)
+{
+	 document.getElementById('protocal_textbox_tb').value = document.getElementById(id).value;
+}
+
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<style>
+body {
+	 height: 100%;
+  width: 100%;
+    background-image: url("/images/health-care-logo.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+
+ 
+ }
+</style>
+<body>
+<h1>Login Details</h1>
+<%= form_for 'users', :url => {:action => "logi"} do %>
+<%= fields_for 'users' do |u|%>
+<div id= "one">
+<table>
+	<tr>
+		<label>User name: </label>
+		<%= u.text_field 'user_name'%>
+	</tr>&nbsp
+	<tr>
+		<label>Password: </label>
+		<%= u.password_field 'password'%>
+	</tr>&nbsp
+	<%= u.submit "Login"%>
+
+</table>
+</div>
+<p><%= link_to 'If you are a new user, click here  for registration', {:action => 'registration'} %></p>
+</body>
+<%end%>
+<%end%>
+</html>
+
+
+<%#= link_to 'Medicine', {:controller => 'medicines' ,:action => 'index'}%>
